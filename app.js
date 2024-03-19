@@ -9,7 +9,15 @@ createApp({
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    callApi() {
+      axios
+        .get("https://flynn.boolean.careers/exercises/api/random/mail")
+        .then((response) => {
+          console.log(response);
+        });
+    },
+  },
   mounted() {
     this.callApi();
   },
