@@ -7,14 +7,18 @@ const { createApp } = Vue;
 
 createApp({
   data() {
-    return {};
+    return {
+      randomEmail: null,
+    };
   },
   methods: {
     callApi() {
       axios
         .get("https://flynn.boolean.careers/exercises/api/random/mail")
         .then((response) => {
-          console.log(response);
+          /* console.log(response.data.response) */
+          this.randomEmail = response.data.response;
+          /* console.log(this.randomEmail); */
         });
     },
   },
