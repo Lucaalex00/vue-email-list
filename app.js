@@ -9,6 +9,7 @@ createApp({
   data() {
     return {
       emailList: [],
+      error: null,
     };
   },
   methods: {
@@ -17,92 +18,21 @@ createApp({
         .get("https://flynn.boolean.careers/exercises/api/random/mail")
         .then((response) => {
           /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
+          console.log(response);
           /* console.log(this.randomEmail); */
         });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
-      axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((response) => {
-          /* console.log(response.data.response) */
-          const newEmail = response.data.response;
-          console.log(newEmail);
-          this.emailList.push(newEmail);
-          /* console.log(this.randomEmail); */
-        });
+      for (let i = 0; i < 10; i++) {
+        axios
+          .get("https://flynn.boolean.careers/exercises/api/random/mail")
+          .then((response) => {
+            const newEmail = response.data.response;
+            this.emailList.push(newEmail);
+          })
+          .catch((error) => {
+            console.log(error);
+            this.error = error;
+          });
+      }
     },
   },
   mounted() {

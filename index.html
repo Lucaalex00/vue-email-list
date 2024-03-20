@@ -7,10 +7,12 @@
   </head>
   <body>
     <div id="app">
-      <ul>
+      <ul v-if="emailList.length=== 10">
         <li v-for="email in emailList">
           {{email}} : &leftarrow; INDIRIZZO EMAIL
         </li>
+
+        <div>{{error}}</div>
       </ul>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
